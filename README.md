@@ -1,280 +1,212 @@
-# H5 周报生成与编辑系统
+# 🚀 Superpowers + OpenSpec 联合开发规范 (SDD 实践模板)
 
-基于 Excel 解析的智能周报工具，支持手机/电脑编辑，一键导出 Markdown。
+本项目是基于 **SDD (Specification-Driven Development，规范驱动开发)** 模式的工程实践模板。它深度融合了 **Superpowers 需求探索方法论** 与 **OpenSpec 变更规范管理工具**，为您提供了一套由 AI Agent 辅助的高质量、文档先行、规范且安全的敏捷开发工作流。
 
-![Version](https://img.shields.io/badge/version-v0.2.0-blue.svg)
-![Vue](https://img.shields.io/badge/Vue-3.5-green.svg)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.9-blue.svg)
-![Progress](https://img.shields.io/badge/进度 -80\%-brightgreen.svg)
+为了方便理解与参考，本项目内置了一个完整的 **「H5 周报生成与编辑系统」** 作为 SDD 的实践与迭代范例（采用 Vue 3 + TypeScript + Vite + Tailwind CSS 技术栈）。
 
 ---
 
 ## 📋 快速导航
 
-- [项目状态](#-项目状态)
-- [功能特性](#-功能特性)
-- [技术栈](#-技术栈)
-- [快速开始](#-快速开始)
-- [项目结构](#-项目结构)
-- [开发规范](#-开发规范)
-- [访问地址](#-访问地址)
+- [1. 核心理念与工具链](#1-核心理念与工具链)
+- [2. SDD 联合开发流程 (16 步)](#2-sdd-联合开发流程-16-步)
+- [3. AI Agent (例如 Claude Code) 引导与操作指南](#3-ai-agent-例如-claude-code-引导与操作指南)
+- [4. 内置案例架构参考 (H5 周报系统)](#4-内置案例架构参考-h5-周报系统)
+- [5. 模板使用与快速上手](#5-模板使用与快速上手)
 
 ---
 
-## 📊 项目状态
+## 1. 核心理念与工具链
 
-**当前版本**: v0.2.0
-**总体进度**: 90% ✅
-**开发阶段**: v0.2 大模型迭代完成
+### 1.1 核心理念
 
-| 阶段 | 内容 | 状态 | 完成度 |
-|------|------|------|--------|
-| Phase 1 | 需求分析 | ✅ 完成 | 100% |
-| Phase 2 | 核心功能 | ✅ 完成 | 100% |
-| Phase 3 | 编辑器开发 | ✅ 完成 | 100% |
-| Phase 4 | 导出与优化 | ✅ 完成 | 100% |
-| v0.2 | 大模型迭代 | ✅ 完成 | 95% |
+> [!NOTE]
+> - **规范先行**：先构思需求，编写规范文档与任务拆解，再进行代码实施。
+> - **流程驱动**：严格按照 Superpowers 需求规划和 OpenSpec 变更阶段推进。
+> - **文档即代码**：规范文件与项目源码同样是核心资产，随版本同步更新演进。
+> - **持续验证**：在每一阶段执行单元测试、E2E 测试和手动测试，保障交付质量。
 
-**开发方式**: SDD (Superpowers + OpenSpec)
+### 1.2 工具链分层
 
----
-
-## ✨ 功能特性
-
-### 核心功能
-- 📤 **Excel 拖拽上传** - 支持拖拽上传，自动解析周报数据
-- 🤖 **AI 智能解析** (v0.2) - 基于 MiniMax API 的 LLM 解析
-- 📊 **智能数据映射** - 自动映射产品组到 7 个章节
-- 🎨 **模板生成** - 基于上周模板生成本周结构
-- 📝 **双模式编辑** - 富文本 + Markdown 一键切换
-- 📥 **多格式导出** - Markdown (MVP) / Word / PDF
-
-### AI 智能解析 (v0.2)
-- 🤖 **LLM 解析模式** - 切换为 AI 模式进行智能解析
-- 🏷️ **内容过滤规则**：
-  - 规则1：跟进中、调研中的内容不汇报
-  - 规则2：不汇报周后内容
-  - 规则3：括号内的内容不汇报
-- ✨ **内容润色** - 一键优化周报文案
-- 📈 **解析进度** - 实时显示解析进度
-
-### 编辑器功能
-- ✏️ **富文本编辑器** - 加粗/斜体/列表/标题
-- 📝 **Markdown 编辑器** - 源码编辑 + 实时预览
-- 📑 **章节导航** - 7 个章节快速切换
-- 💾 **自动保存** - 每 30 秒自动保存防丢失
-
-### 移动端优化
-- 📱 **响应式布局** - 支持手机/平板/桌面
-- 👆 **触摸友好** - 优化移动端交互体验
-- 🎨 **折叠导航** - 移动端自动折叠侧边栏
+```
+┌─────────────────────────────────────────────────────────┐
+│               Superpowers (需求与方法论框架)             │
+│   └── 步骤: Brainstorming ──► Writing Plans             │
+└────────────────────────────┬────────────────────────────┘
+                             │
+                             ▼
+┌─────────────────────────────────────────────────────────┐
+│               OpenSpec (规范与变更管理工具)              │
+│   └── 步骤: new-change ──► continue-change ──► apply    │
+│            ──► verify ──► sync-specs ──► archive        │
+└────────────────────────────┬────────────────────────────┘
+                             │
+                             ▼
+┌─────────────────────────────────────────────────────────┐
+│                   Testing (多重自动化验证)               │
+│   └── 工具: Vitest ──► Playwright (E2E) ──► 手动 Review │
+└─────────────────────────────────────────────────────────┘
+```
 
 ---
 
-## 🛠️ 技术栈
+## 2. SDD 联合开发流程 (16 步)
 
-### 核心框架
-| 技术 | 版本 | 用途 |
-|------|------|------|
-| Vue 3 | 3.5.30+ | 前端框架 |
-| Vite | 8.0.1+ | 构建工具 |
-| TypeScript | 5.9.3+ | 类型安全 |
-
-### UI 组件
-| 技术 | 版本 | 用途 |
-|------|------|------|
-| Element Plus | 2.13.6+ | 组件库 |
-| Tailwind CSS | 3.4.19+ | 样式框架 |
-| Quill | 1.3.7+ | 富文本编辑器 |
-
-### 核心依赖
-| 技术 | 用途 |
-|------|------|
-| xlsx | Excel 解析 |
-| marked | Markdown 渲染 |
-| html2pdf.js | PDF 生成 |
-| minimax-docx | Word 生成 |
-
-### 开发工具
-| 工具 | 用途 |
-|------|------|
-| Vitest | 单元测试 |
-| ESLint | 代码检查 |
-| Prettier | 代码格式化 |
-
----
-
-## 🚀 快速开始
-
-### 1. 环境要求
-- Node.js >= 18.0.0
-- npm >= 9.0.0
-
-### 2. 安装依赖
+### 2.0 开启新迭代的前置条件
+**每次开启新迭代或开发新特性时，必须从 main 分支创建一个新的 feature 分支：**
 ```bash
-git clone https://github.com/Roger0808/h5-weekly-report.git
-cd h5-weekly-report
-npm install
+git checkout main
+git pull origin main
+git checkout -b feature/<迭代名称>
 ```
+> [!WARNING]
+> 禁止直接在 main 分支上开发。所有迭代均需通过 feature 分支进行，并在归档及代码审查通过后以 Pull Request 形式合并。
 
-### 3. 开发模式
-```bash
-npm run dev
-```
-访问 http://localhost:5173
+### 2.1 联合流程概览表
 
-### 4. 构建生产版本
-```bash
-npm run build
-```
+| 阶段 | 步骤 | 命令/技能 | 输出/制品 | 说明 |
+| :--- | :--- | :--- | :--- | :--- |
+| **Phase 1: 需求探索**<br>(Superpowers) | 1 | `/superpowers:brainstorming` | `00-requirements-research-<变更>.md` | 深入调研痛点、现状与限制 |
+| | 2 | `/superpowers:writing-plans` | `01-requirements`, `02-PRD`, `03-architecture`, `04-tasks` | 规划需求、原型与技术方案 |
+| **Phase 2: 变更创建**<br>(OpenSpec) | 3 | `npx openspec new change <变更名>` | 初始化变更目录结构 | 在 `openspec/changes/` 下创建目录 |
+| | 4 | `/openspec-new-change` | 启动变更工作流并创建制品清单 | - |
+| | 5 | `/openspec-continue-change` | `openspec/changes/<变更名>/proposal.md` | 项目提案与大纲 |
+| | 6 | `/openspec-continue-change` | `openspec/changes/<变更名>/design.md` | 架构与设计细节 |
+| | 7 | `npx openspec instructions specs --change <变更名>` | `specs/` 目录规范生成 | 创建 API、组件、类型与测试规范 |
+| | 8 | `/openspec-continue-change` | `openspec/changes/<变更名>/tasks.md` | 子任务及 TODO 清单 |
+| **Phase 3: 实施** | 9 | `/openspec-apply-change` | 编写代码与实现逻辑 | 实际进入代码开发阶段 |
+| **Phase 4: 验证** | 10 | `/openspec-verify-change` | `/openspec-verify-change` 报告 | 验证规范实现的完整性 |
+| | 11 | `npm test` | 单元测试报告 | 检验核心逻辑正确性 |
+| | 12 | `npm run test:e2e` | 端到端测试报告 | 模拟浏览器核心操作链路 |
+| | 13 | 手动测试 | 查阅 `04-test-specifications.md` | Chrome DevTools 调试及移动端适配测试 |
+| **Phase 5: 代码审查** | 14 | `Agent(superpowers:code-reviewer)`| 代码审查报告 | 提交前的人工/AI 交叉审查 |
+| **Phase 6: 同步与归档**| 15 | `/openspec-sync-specs` | 更新 `openspec/specs/` | 将本次增量变更同步到主线规范中 |
+| | 16 | `/openspec-archive-change` | 变更归档，移入归档目录 | 标志着本轮 SDD 迭代圆满结束 |
 
-### 5. 部署
-```bash
-# 构建产物在 dist/ 目录
-# 部署到文件服务器
-cp -r dist/* /home/roger/.openclaw/file-server/h5-weekly-report/
-```
+### 2.2 归档前置检查表
+在执行最后一步 `/openspec-archive-change` 前，必须满足以下所有条件：
+* [ ] 变更的所有 artifacts 状态在 `npx openspec status` 中均显示为 `done`。
+* [ ] 代码成功编译构建，运行 `npm run build:check` 无 TypeScript 类型错误及打包异常。
+* [ ] 运行 `/openspec-verify-change` 全通过，未出现任何遗漏。
+* [ ] 单元测试 `npm test` 100% 通过。
+* [ ] 跑通 E2E 测试 `npm run test:e2e`。
+* [ ] 审查报告无 Critical 级别问题。
 
 ---
 
-## 📁 项目结构
+## 3. AI Agent (例如 Claude Code) 引导与操作指南
 
-```
-h5-weekly-report/
-├── src/
-│   ├── components/
-│   │   ├── Layout/         # 布局组件（4 个）
-│   │   ├── editor/         # 编辑器组件（2 个）
-│   │   ├── common/         # 通用组件（5 个）
-│   │   ├── classification/ # 归类组件（v0.3 新增）
-│   │   └── __tests__/      # 测试文件
-│   ├── pages/              # 页面组件（2 个）
-│   │   ├── HomePage.vue    # 首页
-│   │   └── EditorPage.vue  # 编辑页
-│   ├── composables/        # 组合式函数
-│   ├── services/           # 服务层（LLMService 等）
-│   ├── types/              # 类型定义
-│   ├── utils/              # 工具函数
-│   └── styles/             # 样式文件
-├── openspec/               # OpenSpec 规范框架
-│   ├── specs/              # 项目主规范
-│   ├── changes/            # 变更（content-classification 等）
-│   ├── docs/               # 提案和参考文档
-│   └── README.md           # OpenSpec 使用指南
-├── project.md              # 项目规范（Superpowers + OpenSpec）
-├── capabilities.md         # 项目能力清单
-├── README.md
-├── package.json
-└── vite.config.ts
+本指南供 AI 代理或开发者配合 IDE 终端工具（如 Claude Code, Cursor, Trae）进行开发时参考。
+
+### 3.1 常用脚本命令
+```bash
+npm run dev          # 启动本地开发服务器 (默认端口 localhost:5173)
+npm run build        # 生产环境打包编译，输出至 dist/
+npm run build:check  # TypeScript 类型安全检查 + 生产环境打包
+npm run lint         # 运行 ESLint 静态代码检查 (支持 --fix 自动修复)
+npm run format       # 使用 Prettier 自动格式化代码
+npm run test         # 启动 Vitest 单元测试
+npm run test:coverage # 运行单元测试并生成覆盖率报告
+npm run test:e2e     # 运行 Playwright E2E 测试 (需先启动 dev 服务器)
 ```
 
----
-
-## 📐 开发规范
-
-本项目采用 **SDD (Specification-Driven Development)** 开发模式。
-
-### 开发流程
-```
-Brainstorming → Writing Plans → Executing Plans → Code Review
-     ↓              ↓                 ↓               ↓
-  需求分析      文档编写          代码开发        代码审查
-```
-
-### 规范文档
-详见 [`project.md`](./project.md)：
-- Superpowers 框架流程
-- OpenSpec 规范流程
-- 代码规范（Vue/TypeScript/Git）
-- 项目结构规范
-
-### 提交规范
+### 3.2 提交规范
+Git 提交信息格式建议使用 Angular 规范：
 ```
 <type>(<scope>): <subject>
 
-示例：
-feat(editor): 添加 Markdown 编辑器组件
-fix(upload): 修复移动端文件上传问题
-docs: 更新 README.md
+例如：
+feat(editor): 添加富文本与 Markdown 双模式编辑器
+fix(upload): 修复移动端下拖拽文件解析失败的问题
+docs: 整合 project.md 与 CLAUDE.md 至根目录 README.md
 ```
 
----
-
-## 📍 访问地址
-
-| 环境 | 地址 |
-|------|------|
-| **内网测试** | http://192.168.1.245:18080/h5-weekly-report/ |
-| **进度追踪** | http://192.168.1.245:18080/h5-weekly-report-progress/ |
-| **GitHub** | https://github.com/Roger0808/h5-weekly-report |
+### 3.3 开发指导与注意事项
+- **单例状态管理**：使用 Vue 3 响应式 `reactive()` 属性构建轻量化全局单例 Store，**无需**引入 Pinia。
+- **组合式命名**：所有的业务 Composables 遵循 `use{Feature}` 命名格式并输出独立方法。
+- **环境检查**：构建检查时请务必使用 `vue-tsc` 进行类型检查，而不是默认的 `tsc`。
+- **静态部署**：由于本项目可能以静态方式部署在托管平台（如 GitHub Pages），请确保 `vite.config.ts` 中的 `base` 配置支持相对路径。
 
 ---
 
-## 📝 变更日志
+## 4. 内置案例架构参考 (H5 周报系统)
 
-### v0.2.0 (2026-04-02) - 大模型迭代
-- ✅ **LLM 服务层** - MiniMax API 封装
-- ✅ **内容过滤规则** - 跟进中/调研中/周后/括号内内容过滤
-- ✅ **AI 智能解析** - LLM 替代关键词解析
-- ✅ **HomePage 集成** - 解析模式切换、进度显示
-- ✅ **内容润色功能** - 一键优化周报文案
-- ✅ **单元测试** - LLMService、contentFilter 测试
+本项目内置的周报生成器为单页应用（SPA），包含了前四次迭代的完整 SDD 制品归档（位于 `openspec/changes/archive/`）。
 
-### v0.1.1 (2026-03-29)
-- ✅ Phase 4 导出与优化完成（90%）
-- ✅ 代码结构整理和归类
-- ✅ 添加 project.md 规范文档
-- ✅ 清理根目录配置文件
+### 4.1 目录结构
+```
+superpowers-openspec-templete/
+├── src/                    # 示例前端应用源码
+│   ├── components/         # 组件层 (分类归类、编辑器、通用组件)
+│   ├── pages/              # 页面层 (首页 HomePage.vue、编辑页 EditorPage.vue)
+│   ├── composables/        # 业务逻辑组合式函数
+│   ├── services/           # 基础设施服务 (LLM 客户端代理等)
+│   ├── types/              # TypeScript 类型声明
+│   └── utils/              # 工具函数 (并发队列控制、内容过滤等)
+├── openspec/               # OpenSpec 规范主目录
+│   ├── specs/              # 主线规范（最新系统的组件、接口及测试规范）
+│   ├── changes/            # 活跃的增量变更开发目录
+│   │   └── archive/        # 历史已归档的迭代变更包 (包含 design, proposal, tasks)
+│   └── docs/               # 首次开发时产生的全局需求、架构设计制品
+├── scripts/                # 构建与脚本自动化目录 (包含周报脚本和版本控制)
+├── skills/                 # AI Agent 导入的自动化 skills (周报飞书离线包)
+└── tests/                  # 单元测试与端到端测试用例
+```
 
-### v0.2.0 (2026-03-29)
-- ✅ Phase 3 编辑器开发完成
-- ✅ 富文本编辑器 + Markdown 编辑器
-- ✅ 章节导航组件
-- ✅ 自动保存功能
+### 4.2 H5 周报核心业务规则
 
-### v0.1.0 (2026-03-28)
-- ✅ Phase 1-2 完成
-- ✅ 核心功能开发
-- ✅ OpenSpec 规范生成
+#### 1. 七大固定章节结构
+系统会固定将周报汇总并组织成七大章节：
+1. **来福商城** (`chapter-1`)
+2. **三方项目 (开发中)** (`chapter-2`)
+3. **采购与集采管理** (`chapter-3`)
+4. **三方供应链** (`chapter-4`)
+5. **销售与财务管理** (`chapter-5`)
+6. **竞价平台与异常单** (`chapter-6`)
+7. **履约监控与物流一体化** (`chapter-7`)
+
+#### 2. 内容自动过滤规则 (`useContentFilter.ts`)
+在进行内容整理或利用 LLM 进行润色过滤时，必须严格遵守以下规则：
+- **规则 1**：剔除任何包含 “跟进中” 或 “调研中” 的未决内容。
+- **规则 2**：不汇报“周后内容”（即时间戳超出了当周汇报范围的数据）。
+- **规则 3**：忽略括号中 `[]` 或 `【】` 的附加备注。
+
+#### 3. LLM 智能分类与润色 (MiniMax 集成)
+通过 `src/services/LLMService.ts` 接入 MiniMax 智能服务。若用户提供了 `VITE_MINIMAX_API_KEY` 及 `VITE_MINIMAX_MODEL_ID` 环境变量，应用可自动启动 AI 归类模式，并发对复杂的表格内容进行润色与排版，支持指数退避重试和并发流量控制。
 
 ---
 
-## 📊 代码统计
+## 5. 模板使用与快速上手
 
-| 类别 | 文件数 | 代码行数 |
-|------|--------|----------|
-| 组件 | 13 | ~2,500 |
-| Composables | 3 | ~1,000 |
-| 页面 | 2 | ~600 |
-| 类型定义 | 1 | ~150 |
-| 文档 | 12 | ~3,000 |
-| **总计** | **31** | **~7,250** |
+如果您需要在此模板基础上启动一个全新的 SDD 项目：
+
+1. **克隆项目并配置环境**：
+   ```bash
+   git clone https://github.com/Roger0808/superpowers-openspec-templete.git my-new-project
+   cd my-new-project
+   npm install
+   ```
+2. **复制环境变量模板**：
+   ```bash
+   cp .env.example .env
+   # 在 .env 中填入大模型服务商的 API Key (若需要运行 AI 服务)
+   ```
+3. **清理旧有示例（可选）**：
+   您可以根据需要保留 `src/` 中的业务架构作为骨架，或将其替换为您的业务代码，同时清空 `openspec/changes/archive/` 下的旧归档，来开启一个全新的第一轮 SDD 迭代。
+4. **开始第一轮迭代**：
+   跟随 [SDD 联合开发流程](#2-sdd-联合开发流程-16-步) 开启您的需求探索！
 
 ---
 
-## 🤝 贡献指南
+## 🤝 参与贡献
 
-1. Fork 本仓库
-2. 创建特性分支 (`git checkout -b feature/AmazingFeature`)
-3. 提交更改 (`git commit -m 'Add some AmazingFeature'`)
-4. 推送到分支 (`git push origin feature/AmazingFeature`)
-5. 开启 Pull Request
+1. Fork 本仓库。
+2. 基于 `main` 分支拉出您的特性分支 (`git checkout -b feature/AmazingFeature`)。
+3. 提交您的修改 (`git commit -m 'feat: Add some AmazingFeature'`)。
+4. 推送分支 (`git push origin feature/AmazingFeature`)。
+5. 提起一个 Pull Request。
 
 ---
 
 ## 📄 许可证
-
-MIT License
-
----
-
-## 📞 联系方式
-
-**项目负责人**: 老馒头  
-**开发团队**: 小 c (Claude Code) + 小 r (Research)  
-**开发方式**: SDD (Superpowers + OpenSpec + Claude Code)
-
----
-
-**最后更新**: 2026-04-02
-**状态**: v0.2 大模型迭代完成 🚀
+[MIT License](./LICENSE)
