@@ -1,0 +1,47 @@
+# 环境变量
+.env
+.env.local
+.env.production
+
+# 依赖
+node_modules/
+
+# 构建产物
+dist/
+*.tsbuildinfo
+
+# IDE
+.vscode/
+.idea/
+.cursor/
+
+# 日志
+*.log
+npm-debug.log*
+
+# Worktrees
+.worktrees/
+
+# 系统文件
+.DS_Store
+Thumbs.db
+test-error.png
+test-export-screenshot.png
+test-screenshot.png
+.claude/settings.local.json
+test-results/content-classification-Cla-85167-assification-组件文件存在（通过构建验证）/trace.zip
+test-results/content-classification-内容归类功能---基础流程-1-首页应显示标题和上传区域/trace.zip
+test-results/content-classification-内容归类功能---基础流程-2-应能上传-Excel-文件并解析/trace.zip
+test-results/content-classification-内容归类功能---基础流程-3-应显示-LLM-模式切换按钮/trace.zip
+test-results/content-classification-内容归类功能---基础流程-4-数据预览应显示解析结果/trace.zip
+test-results/content-classification-内容归类功能---基础流程-5-数据预览应显示-7-个章节名称/trace.zip
+test-results/content-classification-内容归类功能---基础流程-6-应能进入模板选择步骤/trace.zip
+test-results/content-classification-内容归类功能---基础流程-7-应能生成周报（进入编辑页）/trace.zip
+test-results/content-classification-编辑页功能-编辑页应显示周报内容/trace.zip
+tests/debug-classification.mjs
+tests/export-test.mjs
+tests/verify-classification.mjs
+.claude/settings.local.json
+.claude/settings.local.json
+.claude/settings.local.json
+.claude/settings.local.json

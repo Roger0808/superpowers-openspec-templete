@@ -1,0 +1,12 @@
+name: weekly-report-feishu-manual
+version: 1.0.0
+description: 技术部飞书周报每周总结 - 全手动模式
+author: Team
+license: MIT
+keywords:
+  - weekly-report
+  - feishu
+  - lark
+  - productivity
+dependencies:
+  - lark-cli
